@@ -789,6 +789,15 @@
 
 
   /**
+   * Utility method for setting resrc options. Merges over the top of any current values
+   * @param newOptions {Object}  New options to merge with current ones
+   */
+  var extendResrcOptions = function(newOptions){
+      mergeObject(options,newOptions);
+  };
+
+
+  /**
    * Expose various private functions as public methods.
    */
   resrc.ready = domReady;
@@ -797,5 +806,6 @@
   resrc.getElementsByClassName = getElementsByClassName;
   resrc.options = options;
   resrc.extend = mergeObject;
+  resrc.configure = extendResrcOptions;
 
 }(window.resrc = window.resrc || {}));

@@ -24,13 +24,12 @@
        * Set some custom options
        * See: http://www.resrc.it/docs/javascript/0.8#options
        */
-      var defaults = {
+      resrc.configure({
         resrcOnResizeDown : true,
         resrcOnPinch : true,
         imageQuality : 100,
         pixelRounding : 1
-      };
-      resrc.options = resrc.extend(resrc.options, defaults);
+      });
       resrc.resrc();
     });
   </script>

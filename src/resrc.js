@@ -794,6 +794,7 @@
    */
   var extendResrcOptions = function(newOptions){
       mergeObject(options,newOptions);
+      return resrc;
   };
 
 

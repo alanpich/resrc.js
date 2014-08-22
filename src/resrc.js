@@ -802,7 +802,7 @@
    * Expose various private functions as public methods.
    */
   resrc.ready = domReady;
-  resrc.resrc = initResrc;
+  resrc.resrc = resrc.run = initResrc;
   resrc.getResrcImageObject = getResrcImageObject;
   resrc.getElementsByClassName = getElementsByClassName;
   resrc.options = options;

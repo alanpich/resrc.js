@@ -166,7 +166,8 @@
     var searchVal;
     var index;
     var res;
-    imgPath = parseUri(url).url ? parseUri(url).path + "?" + parseUri(url).query : parseUri(url).path;
+    var parsedUri = parseUri(url);
+    imgPath = parsedUri.url ? parsedUri.path + "?" + parsedUri.query : parsedUri.path;
     searchVal = /(https?):|(\/\/)/;
     index = imgPath.search(searchVal);
     res = imgPath.substring(index);
@@ -216,7 +217,8 @@
    */
   var parseSrcToUniformFormat = function (src, server) {
     if (src.match(/\/\//g).length > 1) {
-      return parseUri(src).authority !== server ? src.replace(parseUri(src).protocol + "://" + parseUri(src).authority, getProtocol(options.ssl) + server) : src;
+        var parsedUri = parseUri(src);
+      return parsedUri.authority !== server ? src.replace(parsedUri.protocol + "://" + parsedUri.authority, getProtocol(options.ssl) + server) : src;
     }
     return getProtocol(options.ssl) + server + "/" + src;
   };

@@ -15,6 +15,12 @@ module.exports = function (grunt) {
         all: ["<%= srcPath %>"]
     });
 
+
+    grunt.config('clean',{
+        'tmp': '.tmp',
+        'dist': 'dist'
+    })
+
     grunt.config('uglify', {
         options: {
             banner: grunt.file.read("header.txt"),
@@ -39,7 +45,7 @@ module.exports = function (grunt) {
                     unsafe: true,
                     dead_code: true,
                     screw_ie8: true,
-                    drop_console: true,
+                    drop_console: true
                 }
             }
         },
@@ -56,7 +62,7 @@ module.exports = function (grunt) {
                     unsafe: true,
                     dead_code: true,
                     screw_ie8: true,
-                    drop_console: true,
+                    drop_console: true
                 }
             }
         }
@@ -94,8 +100,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-includes');
 
-    grunt.registerTask('build', ['jshint', 'includes:js', 'uglify']);
-    grunt.registerTask('go', ['exec:build', 'uglify:old', 'uglify:jquery', 'uglify:standalone']);
+    grunt.registerTask('build', ['clean','jshint', 'includes:js', 'uglify']);
 
 
     // MUCH better

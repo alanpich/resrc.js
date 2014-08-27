@@ -1,6 +1,7 @@
 (function (resrc) {
+    "use strict";
 
-    resrc.version = '0.8';
+    resrc.version = "0.8";
 
     var windowHasResizeEvent = false;
     var windowResizeTimeout = 200;
@@ -13,7 +14,7 @@
     var options = resrc.options = mergeObject({},{
         server: "app.resrc.it",
         resrcClass: "resrc",
-        resrcAttribute: 'data-src',
+        resrcAttribute: "data-src",
         resrcOnResize: true,
         resrcOnResizeDown: true,
         resrcOnPinch: false,
@@ -72,10 +73,10 @@
      * @returns {string}
      */
     var getProtocol = function (ssl) {
-        if(ssl == null){
-            ssl = options.ssl
+        if(ssl === null){
+            ssl = options.ssl;
         }
-        return ssl ? 'https://' : 'http://'
+        return ssl ? "https://" : "http://";
     };
 
 
@@ -286,7 +287,7 @@
      * @returns {number}
      */
     var getWindowWidth = function () {
-        if(BUILD_TYPE == 'JQUERY'){
+        if(BUILD_TYPE === "JQUERY"){
             return $(window).innerWidth();
         } else {
             return document.documentElement.clientWidth || document.body && document.body.clientWidth || 1024;
@@ -299,7 +300,7 @@
      * @returns {number}
      */
     var getWindowHeight = function () {
-        if(BUILD_TYPE == 'JQUERY'){
+        if(BUILD_TYPE === "JQUERY"){
             return $(window).innerHeight();
         } else {
             return document.documentElement.clientHeight || document.body && document.body.clientHeight || 768;
@@ -573,7 +574,7 @@
         };
 
 
-        var modifiers = hookFunctions.get('modifyResrcObject');
+        var modifiers = hookFunctions.get("modifyResrcObject");
         for(var k=0;k<modifiers.length;k++){
             resrcObj = modifiers[k](elem,resrcObj);
         }
@@ -594,9 +595,9 @@
         var resrcObj = getResrcImageObject(elem);
 
         // Compile the full path to image
-        resrcObj.resrcImgPath = resrcObj.protocol + resrcObj.server +'/'+ resrcObj.params +'/'+ resrcObj.fallbackImgPath;
+        resrcObj.resrcImgPath = resrcObj.protocol + resrcObj.server +"/"+ resrcObj.params +"/"+ resrcObj.fallbackImgPath;
 
-        var elementModifiers = hookFunctions.get('modifyElement');
+        var elementModifiers = hookFunctions.get("modifyElement");
         for(var k=0;k<elementModifiers.length;k++){
             elementModifiers[k](elem,resrcObj);
         }
@@ -622,7 +623,7 @@
         else {
             elemArr = [];
             // Allow plugins to extend the elements list
-            var hookFns = hookFunctions.get('getElements');
+            var hookFns = hookFunctions.get("getElements");
             for (var k = 0; k < hookFns.length; k++) {
                 var newEls = hookFns[k].apply(this);
                 if (newEls) {
@@ -673,7 +674,7 @@
 ////////////////////////////////////////////////////////////////////////////
 ////   Plugin hook utilities
 ////////////////////////////////////////////////////////////////////////////
-// @include './plugin-api.js'
+// @include ./plugin-api.js
 
 
 ////////////////////////////////////////////////////////////////////////////
@@ -689,13 +690,13 @@
     resrc.it = resrc.resrc = resrc.run = runReSRC;
 
     resrc.configure = function(opts){
-        options = mergeObject(options,opts)
+        options = mergeObject(options,opts);
     };
 
     resrc.util = {
         merge: mergeObject,
         getResrcImageObject: getResrcImageObject
-    }
+    };
 
 
 })(window.resrc || (window.resrc = {}));

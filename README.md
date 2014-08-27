@@ -1,6 +1,41 @@
 [resrc.js](http://www.resrc.it/docs/javascript/0.8) - Responsive Image Library
 ==========================================================================
 
+
+---
+## Quick explanation of new changes
+
+Have refactored most of the outer code to allow easier plugin interaction and multiple plugins.
+To use, now do something like this:
+```js
+    // Base-level behavior, same as calling resrc.resrc() in v0.7
+    resrc.it();
+
+    // Configuration first - tidier than resrc.extend(...blah...)
+    // 'run','it' & 'resrc' are all aliases of each other
+    resrc.configure({
+        resrcClass: 'adaptive-img'
+    }).run();
+
+    // Use all the plugins!
+    resrc.configure({
+
+    }).shard({
+        servers: ['one.example.com','two.example.com']
+    }).breakpoints({
+        localStorage: true
+    }).modifyAttributes([
+        'data-my-other-attribute'
+    ]).run()
+```
+
+
+
+
+
+
+---
+
 resrc.js is a small, mobile friendly *(1.5kb in file size - Minified and Gzipped)* responsive image JavaScript library that produces pixel perfect images on demand.
 The library requires your images to be served via [ReSRC](http://www.resrc.it) - The Responsive Image Service. Link your images to our simple service and let us take care of everything!
 

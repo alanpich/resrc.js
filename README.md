@@ -19,7 +19,7 @@ To use, now do something like this:
 
     // Use all the plugins!
     resrc.configure({
-
+        resrcClass: 'adaptive-img'
     }).shard({
         servers: ['one.example.com','two.example.com']
     }).breakpoints({

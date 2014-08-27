@@ -1,20 +1,19 @@
 {
-  "name" : "resrc.js",
-  "description" : "A JavaScript library for pixel perfect images on demand.",
-  "homepage" : "https://github.com/resrcit/resrc.js/",
-  "version" : "0.8.0",
-  "author" : "ReSRC (https://github.com/resrcit)",
-  "license" : "GPL-2.0",
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/resrcit/resrc.js.git"
+  "name": "resrc.js",
+  "description": "A JavaScript library for pixel perfect images on demand.",
+  "homepage": "https://github.com/resrcit/resrc.js/",
+  "version": "0.8.0",
+  "author": "ReSRC (https://github.com/resrcit)",
+  "license": "GPL-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/resrcit/resrc.js.git"
   },
-  "dependencies" : {
-    "grunt" : "~0.4.1"
-  },
-  "devDependencies" : {
-    "grunt-contrib-jshint" : "~0.6.4",
-    "grunt-contrib-uglify" : "~0.2.4",
-    "grunt-contrib-watch" : "~0.5.3"
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-contrib-uglify": "~0.2.4",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt": "^0.4.5",
+    "grunt-includes": "^0.4.5"
   }
 }

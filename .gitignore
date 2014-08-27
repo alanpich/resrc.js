@@ -1,4 +1,7 @@
 *.min.js
+*.min.js.map
 .DS_Store
 .idea
 node_modules
+.tmp
+dist

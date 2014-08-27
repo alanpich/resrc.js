@@ -8,9 +8,18 @@
     var windowLastWidth = 0;
 
 
+////////////////////////////////////////////////////////////////////////////
+////   Utilities and polyfils
+////////////////////////////////////////////////////////////////////////////
+
     // @include util.js
 
 
+
+
+////////////////////////////////////////////////////////////////////////////
+////   Default config options
+////////////////////////////////////////////////////////////////////////////
     var options = resrc.options = mergeObject({},{
         server: "app.resrc.it",
         resrcClass: "resrc",
@@ -24,17 +33,17 @@
         corePlugin: true
     });
 
-//
-// THE MEAT
-//
+
+
+////////////////////////////////////////////////////////////////////////////
+////   The Meat
+////////////////////////////////////////////////////////////////////////////
 
     /**
      * Split any well-formed URI into its parts.
      * Hat Tip to Steven Levithan <stevenlevithan.com> (MIT License)
-     * @property authority
-     * @property query
-     * @property directory
-     * @param str
+     *
+     * @param str {string}
      * @returns {object}
      */
     var parseUri = function (str) {
@@ -69,7 +78,8 @@
 
     /**
      * Get the url protocol based on the options.ssl value.
-     * @param ssl
+     *
+     * @param [ssl] {boolean}
      * @returns {string}
      */
     var getProtocol = function (ssl) {
@@ -82,7 +92,8 @@
 
     /**
      * Get the remote image URL (fallback URL).
-     * @param url
+     *
+     * @param url {string}
      * @returns {string}
      */
     var getRemoteImageURL = function (url) {
@@ -107,7 +118,8 @@
 
     /**
      * Get the resrc path prefix (The part that gets prepended onto the remote image).
-     * @param url
+     *
+     * @param url {string}
      * @returns {string}
      */
     var getResrcPathPrefix = function (url) {
@@ -135,8 +147,8 @@
      * 2. Doesn't contain a "//" anywhere after the initial http(s)://
      *    A. create the url by adding the protocol, server and src together.
      *
-     * @param src
-     * @param server
+     * @param src {string}
+     * @param server {string}
      * @returns {string}
      */
     var parseSrcToUniformFormat = function (src, server) {
@@ -150,7 +162,8 @@
 
     /**
      * Does the string contain parenthesis?
-     * @param str
+     *
+     * @param str {string}
      * @returns {boolean}
      */
     var hasParenthesis = function (str) {
@@ -161,7 +174,8 @@
 
     /**
      * Get the value inside the parenthesis.
-     * @param str
+     *
+     * @param str {string}
      * @returns {string}
      */
     var getValueInsideParenthesis = function (str) {
@@ -177,8 +191,9 @@
 
     /**
      * Round the pixel size based on the pixel rounding parameter.
-     * @param pixelSize
-     * @param pixelRounding
+     * @param pixelSize {number}
+     * @param pixelRounding {number}
+     *
      * @returns {number}
      */
     var pixelRound = function (pixelSize, pixelRounding) {
@@ -188,6 +203,7 @@
 
     /**
      * Does the user agent match a supported ResrcOnPinch device? (iPhone, iPod, iPad)
+     *
      * @returns {boolean}
      */
     var isSupportedResrcOnPinchDevice = function () {
@@ -197,7 +213,8 @@
 
     /**
      * Is the value a number?
-     * @param value
+     *
+     * @param value {*}
      * @returns {boolean}
      */
     var isNumber = function (value) {
@@ -207,8 +224,9 @@
 
     /**
      * Set a parameter and value.
-     * @param param
-     * @param val
+     *
+     * @param param {string}
+     * @param val {string}
      * @returns {string}
      */
     var setParameterAndValue = function (param, val) {
@@ -221,8 +239,9 @@
 
     /**
      * Get the final index position of a specified item from an array.
-     * @param arr
-     * @param str
+     *
+     * @param arr {Array}
+     * @param str {string}
      * @returns {number}
      */
     var getFinalIndexPositionFromArray = function (arr, str) {
@@ -246,6 +265,7 @@
 
     /**
      * Get the inner width of the screen.
+     *
      * @returns {number}
      */
     var getDeviceScreenInnerWidth = function () {
@@ -257,7 +277,8 @@
     /**
      * Get the pixel ratio specified on the element if it has a data-dpi attribute.
      * Fall back to the device pixel ratio.
-     * @param elem
+     *
+     * @param elem {HTMLElement}
      * @returns {Number}
      */
     var getPixelRatio = function (elem) {
@@ -274,7 +295,8 @@
     /**
      * Get the server specified on the element.
      * Fall back to the options.server.
-     * @param elem
+     *
+     * @param elem {HTMLElement}
      * @returns {string}
      */
     var getServer = function (elem) {
@@ -284,6 +306,7 @@
 
     /**
      * Get the window width.
+     *
      * @returns {number}
      */
     var getWindowWidth = function () {
@@ -297,6 +320,7 @@
 
     /**
      * Get the window height.
+     *
      * @returns {number}
      */
     var getWindowHeight = function () {
@@ -310,7 +334,8 @@
 
     /**
      * Get the elements image src.
-     * @param elem
+     *
+     * @param elem {HTMLElement}
      * @returns {string}
      */
     var getImgSrc = function (elem) {
@@ -322,7 +347,8 @@
 
     /**
      * Get the parameter.
-     * @param str
+     *
+     * @param str {string}
      * @returns {string}
      */
     var getParameter = function (str) {
@@ -332,7 +358,8 @@
 
     /**
      * Get the parameter value.
-     * @param str
+     *
+     * @param str {string}
      * @returns {string}
      */
     var getParameterValue = function (str) {
@@ -343,7 +370,7 @@
     /**
      * Get an elements computed pixel width and height.
      *
-     * @param elem
+     * @param elem {HTMLElement}
      * @returns {object}
      */
     var getComputedPixelSize = function (elem) {
@@ -397,8 +424,9 @@
 
     /**
      * Throttle function calls based on a period of time.
-     * @param func
-     * @param wait
+     *
+     * @param func {Function}
+     * @param wait {number}
      * @returns {function}
      */
     var debounce = function (func, wait) {
@@ -419,6 +447,8 @@
     /**
      * Replace the elements image src when the elementPinched function is called.
      * This is used in the "gestureend" event listener callback.
+     *
+     * @returns void
      */
     var elementPinched = function () {
         replaceElementSrc(this);
@@ -428,7 +458,9 @@
 
     /**
      * Add "gestureend" event listener if supported.
-     * @param elem
+     *
+     * @param elem {HTMLElement}
+     * @returns void
      */
     var addGestureendEvent = function (elem) {
         if (elem.addEventListener && !elem.eventListenerAdded) {
@@ -440,6 +472,8 @@
 
     /**
      * Add "resize" window event.
+     *
+     * @returns void
      */
     var addWindowResizeEvent = function () {
         if (window.addEventListener) {
@@ -453,6 +487,8 @@
     /**
      * Reload resrc if the window width is different to last window width.
      * This is used in the "resize" event listener callback.
+     *
+     * @returns void
      */
     var windowResized = function () {
         if (windowLastWidth !== getWindowWidth()) {
@@ -464,6 +500,8 @@
 
     /**
      * Initialize resrc and update the last window width variable.
+     *
+     * @returns void
      */
     var resrcReload = debounce(function () {
         actualRunReSRC();
@@ -609,7 +647,7 @@
     /**
      * The ACTUAL runtime script, called in the scope of a group to do its thang
      *
-     * @param elem {HTMLElement|Array<HTMLElement>|null}
+     * @param [elem] {null|HTMLElement|Array<HTMLElement>}
      * @returns void
      */
     var actualRunReSRC = function (elem) {
@@ -660,9 +698,9 @@
      *
      * @returns void
      */
-    var runReSRC = function (opts) {
+    var runReSRC = function () {
         domReady(function(){
-            actualRunReSRC(opts);
+            actualRunReSRC();
         });
     };
 
@@ -684,7 +722,7 @@
 
 
 ////////////////////////////////////////////////////////////////////////////
-////   Setup the exported object
+////   Setup the export object
 ////////////////////////////////////////////////////////////////////////////
 
     resrc.it = resrc.resrc = resrc.run = runReSRC;

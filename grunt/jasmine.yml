@@ -1,9 +1,25 @@
 public:
-  src: .tmp/resrc.js
+  src: <%= path.dist.standalone %>
   options:
-    specs: test/public/**/**.spec.js
+    specs: test/public/**/*.spec.js
+
+public-jquery:
+  src: <%= path.dist.jquery %>
+  options:
+    specs: test/public/**/*.spec.js
+    vendor: bower_components/jquery/dist/jquery.js
+
+
 
 private:
-  src: .tmp/resrc.js
+  src: <%= path.tmp.standalone %>
   options:
     specs: test/private/**/*.spec.js
+
+private-jquery:
+  src: <%= path.tmp.jquery %>
+  options:
+    specs: test/private/**/*.spec.js
+    vendor: bower_components/jquery/dist/jquery.js
+
+

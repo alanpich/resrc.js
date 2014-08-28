@@ -1,4 +1,11 @@
-build:
-  src: .tmp/resrc.js
+standalone:
+  src: <%= path.tmp.standalone %>
   objectToExport: resrc
   globalAlias: resrc
+
+jquery:
+  src: <%= path.tmp.jquery %>
+  objectToExport: resrc
+  globalAlias: resrc
+
+

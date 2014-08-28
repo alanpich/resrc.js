@@ -4,7 +4,14 @@ options:
   debug: <%= production %>
 
 
-build:
+build-standalone:
   files:
     - src:  <%= path.src %>
-      dest: <%= path.tmp %>
+      dest: <%= path.tmp.standalone %>
+
+build-jquery:
+  files:
+    - src:  <%= path.src %>
+      dest: <%= path.tmp.jquery %>
+
+

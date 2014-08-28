@@ -1,14 +1,30 @@
-build:
-  - clean:build
-  - includes:build
-  - uglify:strip
+'build:standalone':
+  - clean:standalone
+  - includes:build-standalone
+  - uglify:strip-standalone
   - jasmine:private
-  - umd:build
-  - uglify:compress
+  - umd:standalone
+  - uglify:build-standalone
   - jasmine:public
 
+'build:jquery':
+  - clean:jquery
+  - includes:build-jquery
+  - uglify:strip-jquery
+  - jasmine:private-jquery
+  - umd:jquery
+  - uglify:build-jquery
+  - jasmine:public-jquery
 
-quickbuild:
+
+'build:quick':
   - includes:build
   - uglify:strip
   - umd:build
+
+
+
+build:
+  - build:standalone
+  - build:jquery
+  - bytesize:dist

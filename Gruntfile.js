@@ -17,10 +17,12 @@ module.exports = function (grunt) {
                 src: 'src/resrc.js',
                 dist: {
                     standalone: 'dist/resrc.min.js',
-                    jquery: 'dist/resrc.jquery.min.js',
-                    testable: 'dist/resrc.testable.min.js'
+                    jquery: 'dist/resrc.jquery.min.js'
                 },
-                tmp: '.tmp/resrc.js',
+                tmp: {
+                    standalone: '.tmp/resrc.js',
+                    jquery: '.tmp/resrc.jquery.js'
+                },
                 dir: {
                     tests: 'tests'
                 }

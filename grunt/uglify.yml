@@ -13,12 +13,36 @@ options:
 
 
 
-strip:
+strip-standalone:
   mangle: false
   files:
-    <%= path.tmp %>: <%= path.tmp %>
+    <%= path.tmp.standalone %>: <%= path.tmp.standalone %>
 
 
-compress:
+strip-jquery:
   files:
-    <%= path.dist.standalone %>: <%= path.tmp %>
+    <%= path.tmp.jquery %>: <%= path.tmp.jquery %>
+  options:
+    mangle: false
+    compress:
+      dead_code: true
+      drop_console: true
+      global_defs:
+        BUILD_TYPE: JQUERY
+
+
+
+
+
+build-standalone:
+  options:
+    report: gzip
+  files:
+    <%= path.dist.standalone %>: <%= path.tmp.standalone %>
+
+
+build-jquery:
+  options:
+    report: gzip
+  files:
+    <%= path.dist.jquery %>: <%= path.tmp.jquery %>

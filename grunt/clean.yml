@@ -2,6 +2,10 @@ tmp: .tmp
 
 dist: dist
 
-build:
-  - .tmp
-  - dist
+standalone:
+  - <%= path.tmp.standalone %>
+  - <%= path.dist.standalone %>
+
+jquery:
+  - <%= path.tmp.jquery %>
+  - <%= path.dist.jquery %>

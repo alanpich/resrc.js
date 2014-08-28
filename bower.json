@@ -26,5 +26,8 @@
     "src",
     "grunt",
     "test"
-  ]
+  ],
+  "devDependencies": {
+    "jquery": "~2.1.1"
+  }
 }

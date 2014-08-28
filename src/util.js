@@ -43,7 +43,7 @@ var getElementsByClassName = function (className) {
         ret = Array.prototype.slice.apply(document.getElementsByClassName(className));
     }
     else {
-        if(BUILD_JQUERY){
+        if(BUILD_TYPE == 'JQUERY'){
             return jQuery('.'+className).toArray();
         } else {
             var regex = new RegExp("(^|\\s)" + className + "(\\s|$)");

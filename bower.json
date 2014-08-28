@@ -1,0 +1,30 @@
+{
+  "name": "resrc.js",
+  "version": "0.8.0",
+  "homepage": "https://github.com/resrcit/resrc.js",
+  "authors": [
+    "ReSRC (https://github.com/resrcit)",
+    "Alan Pich <alan.pich@gmail.com>"
+  ],
+  "description": "A small responsive image JavaScript library that produces pixel perfect images on demand",
+  "main": "dist/resrc.js",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "license": "GPL-2.0",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    ".tmp",
+    "examples",
+    "header.txt",
+    "package.json",
+    "src",
+    "grunt",
+    "test"
+  ]
+}

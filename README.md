@@ -30,9 +30,11 @@ To use, now do something like this:
 ```
 
 
+Have also added a separate build process that replaces all possible shim & utility functions
+with ones that jquery can provide instead. The justification for this is that most sites use
+jquery, and so we can cut down the weight of our library by not duplicating functionality.
 
-
-
+To build the distribution libraries run `grunt build` from the root directory
 
 ---
 
@@ -85,10 +87,11 @@ Coming Soon.
 
 ## Building a minified release
 
+
 The repository does not contain a minified resrc.min.js file - this is only generated
 for [RELEASES](https://github.com/resrcit/resrc.js/releases). To build your own minified copy
 for use in development simply run ```npm install``` if you haven't already, followed by ```grunt build```.
-This will generate a resrc.min.js file in the `dist` subdirectory.
+This will generate resrc.min.js & resrc.jquery.min.js files in the `dist` subdirectory.
 
 ## Team
 

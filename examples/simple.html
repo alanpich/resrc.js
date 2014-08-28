@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-  <meta charset="UTF-8">
-  <title>ReSRC Simple Example</title>
-  <style>.resrc {width:100%}</style>
-  <!-- 1. Load the resrc.js library -->
-  <script src="//use.resrc.it/0.8"></script>
-  <!-- 2. On DOM Ready, Execute resrc -->
-  <script>
-    resrc.ready(function() {
-      resrc.resrc();
-    });
-  </script>
+
+    <meta charset="UTF-8">
+    <title>ReSRC Simple Example</title>
+    <style>.resrc {width:100%}</style>
+
+    <!-- 1. Load the resrc.js library -->
+    <script src="../dist/resrc.min.js"></script>
+
+    <!-- 2. Execute resrc -->
+    <script>
+      resrc.it();
+    </script>
+
 </head>
 <body>
-<img data-src="http://www.your-site.co/image.jpg" class="resrc"/>
+    <img data-src="http://www.your-site.co/image.jpg" class="resrc" />
 </body>
 </html>

@@ -15,25 +15,24 @@
       background-size: cover
     }
   </style>
+
   <!-- 1. Load the resrc.js library -->
   <script src="//use.resrc.it/0.8"></script>
+
   <!-- 2. On DOM Ready, Execute resrc -->
   <script>
-    resrc.ready(function () {
       /**
        * Set some custom options
        * See: http://www.resrc.it/docs/javascript/0.8#options
        */
-      var defaults = {
-        resrcOnResizeDown : true,
-        resrcOnPinch : true,
-        imageQuality : 100,
-        pixelRounding : 1
-      };
-      resrc.options = resrc.extend(resrc.options, defaults);
-      resrc.resrc();
-    });
+      resrc.configure({
+          resrcOnResizeDown : true,
+          resrcOnPinch : true,
+          imageQuality : 100,
+          pixelRounding : 1
+      }).it()
   </script>
+
 </head>
 <body>
 <div data-src="http://www.your-site.co/image.jpg" class="resrc"></div>

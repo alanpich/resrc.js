@@ -1,15 +1,18 @@
 module.exports = function (grunt) {
 
-    var production = (grunt.option('environment') || 'dev') === 'production';
-
+    var pkgData = grunt.file.readJSON('package.json')
 
     require('load-grunt-config')(grunt,{
         init: true,
         data: {
-            pkg: grunt.file.readJSON('package.json'),
-            version: '0.8.0',
-            srcPath: 'src/resrc.js',
+            //
+            // Read package.json data
+            //
+            pkg: pkgData,
 
+            //
+            // Paths to files and directories
+            //
             path: {
                 src: 'src/resrc.js',
                 dist: {
@@ -23,19 +26,25 @@ module.exports = function (grunt) {
                 }
             },
 
-            production: production,
-
-            includeRegex: /^\s*\/\/\s*\@include\s+['"]?([^'"\s]+)['"]?\s*$/,
-
+            //
+            // Paths to useful templates
+            //
             tpl: {
                 header: grunt.file.read('header.txt')
             },
 
+            //
+            // Drop this here to store a RegExp var
+            //
             includes: {
                 options: {
                     includeRegexp: /^\s*\/\/\s*\@include\s+['"]?([^'"\s]+)['"]?\s*$/i
                 }
-            }
+            },
+
+            // [possiblty depreciated?]
+            production: (grunt.option('environment') || 'dev') === 'production'
+
         }
     })
 

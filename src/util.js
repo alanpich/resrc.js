@@ -4,9 +4,6 @@
  */
 
 
-
-if(typeof BUILD_TYPE === 'undefined') BUILD_TYPE = false;
-
 if(BUILD_TYPE == 'JQUERY'){
     var domReady = jQuery;
     var mergeObject = jQuery.extend;
@@ -14,12 +11,16 @@ if(BUILD_TYPE == 'JQUERY'){
     var getComputedPixelSize = function(elem){
         return $(elem).outerWidth()
     }
-}
+
+
+};
 
 if(BUILD_TYPE == 'STANDALONE'){
-    // @include './util/domReady.js'
-    // @include './util/mergeObject.js'
-    // @include './util/getComputedPixelSize.js'
+
+
+    // @include ./util/domReady
+    // @include ./util/mergeObject
+    // @include ./util/getComputedPixelSize
     var isArray = function(obj){
         return Array.isArray ? Array.isArray(obj) : Object.prototype.toString.call(obj) === "[object Array]"
     };

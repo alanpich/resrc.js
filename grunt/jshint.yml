@@ -1,0 +1,5 @@
+options:
+  jshintrc: .jshintrc
+
+all:
+  - <%= path.src %>

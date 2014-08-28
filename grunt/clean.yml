@@ -1,0 +1,7 @@
+tmp: .tmp
+
+dist: dist
+
+build:
+  - .tmp
+  - dist

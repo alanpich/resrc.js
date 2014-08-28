@@ -1,0 +1,14 @@
+build:
+  - clean:build
+  - includes:build
+  - uglify:strip
+  - jasmine:private
+  - umd:build
+  - uglify:compress
+  - jasmine:public
+
+
+quickbuild:
+  - includes:build
+  - uglify:strip
+  - umd:build

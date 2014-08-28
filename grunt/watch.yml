@@ -1,0 +1,5 @@
+scripts:
+  files:
+    - src/**/*.js
+  tasks:
+    - quickbuild

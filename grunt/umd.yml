@@ -1,0 +1,4 @@
+build:
+  src: .tmp/resrc.js
+  objectToExport: resrc
+  globalAlias: resrc

@@ -1,0 +1,9 @@
+public:
+  src: .tmp/resrc.js
+  options:
+    specs: test/public/**/**.spec.js
+
+private:
+  src: .tmp/resrc.js
+  options:
+    specs: test/private/**/*.spec.js

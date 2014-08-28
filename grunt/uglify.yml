@@ -1,0 +1,24 @@
+options:
+  banner: <%= tpl.header %>
+  compress:
+    dead_code: true
+    drop_console: true
+    global_defs:
+      BUILD_TYPE: STANDALONE
+  beautify: false
+  mangle: true
+  preserveComments: false
+  report: min
+
+
+
+
+strip:
+  mangle: false
+  files:
+    <%= path.tmp %>: <%= path.tmp %>
+
+
+compress:
+  files:
+    <%= path.dist.standalone %>: <%= path.tmp %>

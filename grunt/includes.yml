@@ -1,0 +1,10 @@
+options:
+  filenameSuffix: .js
+  duplicates: false
+  debug: <%= production %>
+
+
+build:
+  files:
+    - src:  <%= path.src %>
+      dest: <%= path.tmp %>

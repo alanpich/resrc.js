@@ -1,29 +1,40 @@
+#############################################################
+# TASK:  Build standalone library
+#############################################################
 'build:standalone':
+    # Clear up any previous build artefacts
   - clean:standalone
-  - includes:build-standalone
-  - uglify:strip-standalone
+    # Run unit tests on internal functions
   - jasmine:private
-  - umd:standalone
-  - uglify:build-standalone
+    # Wrap it all up in a nice little UMD
+  - umd
+    # Compress the shit out of it
+  - uglify:standalone
+    # Run unit tests on the public API
   - jasmine:public
 
+
+#############################################################
+# TASK:  Build jquery library
+#############################################################
 'build:jquery':
+    # Clear up any previous build artefacts
   - clean:jquery
-  - includes:build-jquery
-  - uglify:strip-jquery
-  - jasmine:private-jquery
-  - umd:jquery
-  - uglify:build-jquery
-  - jasmine:public-jquery
-
-
-'build:quick':
-  - includes:build
-  - uglify:strip
-  - umd:build
+    # Run unit tests on internal functions
+  - jasmine:private
+    # Wrap it all up in a nice little UMD
+  - umd
+    # Compress the shit out of it
+  - uglify:jquery
+    # Run unit tests on the public API
+  - jasmine:public
 
 
 
+
+#############################################################
+#  TASK:  Build all libarary variations
+#############################################################
 build:
   - build:standalone
   - build:jquery

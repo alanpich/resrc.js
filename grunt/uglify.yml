@@ -12,37 +12,39 @@ options:
 
 
 
-
-strip-standalone:
-  mangle: false
-  files:
-    <%= path.tmp.standalone %>: <%= path.tmp.standalone %>
-
-
-strip-jquery:
-  files:
-    <%= path.tmp.jquery %>: <%= path.tmp.jquery %>
+#############################################################
+# TASK:  Compress removing jquery shims
+#############################################################
+standalone:
   options:
+    report: gzip
     mangle: false
+    beautify: true
+    sourceMap: true
+    sourceMapIncludeSources: true
+    compress:
+      dead_code: true
+      drop_console: true
+      global_defs:
+        BUILD_TYPE: STANDALONE
+
+  files:
+    <%= path.dist.standalone %>: <%= path.tmp.standalone %>
+
+
+
+
+
+#############################################################
+# TASK:  Compress removing standalone shims
+#############################################################
+jquery:
+  options:
+    report: gzip
     compress:
       dead_code: true
       drop_console: true
       global_defs:
         BUILD_TYPE: JQUERY
-
-
-
-
-
-build-standalone:
-  options:
-    report: gzip
-  files:
-    <%= path.dist.standalone %>: <%= path.tmp.standalone %>
-
-
-build-jquery:
-  options:
-    report: gzip
   files:
     <%= path.dist.jquery %>: <%= path.tmp.jquery %>

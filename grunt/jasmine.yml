@@ -12,7 +12,7 @@ public-jquery:
 
 
 private:
-  src: <%= path.tmp.standalone %>
+  src: <%= path.src %>
   options:
     specs: test/private/**/*.spec.js
 

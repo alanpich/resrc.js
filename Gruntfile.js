@@ -15,6 +15,7 @@ module.exports = function (grunt) {
             //
             path: {
                 src: 'src/resrc.js',
+                buildTmp: '.tmp/resrc.js',
                 dist: {
                     standalone: 'dist/resrc.min.js',
                     jquery: 'dist/resrc.jquery.min.js'
@@ -25,6 +26,12 @@ module.exports = function (grunt) {
                 },
                 dir: {
                     tests: 'tests'
+                },
+                sourcemap: {
+                    standalone: {
+                        intermediate: '.tmp/resrc.js.map',
+                        final: 'dist/resrc.js.map'
+                    }
                 }
             },
 
